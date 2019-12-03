@@ -1,0 +1,31 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="wrapper">
+  <div class="card mt-5" style="margin:auto;width: 600px;">
+    <div class="card-body">
+      <h5 class="card-title">Please Sign In</h5>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          placeholder="Email Address"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Password"
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary form-control"
+        (click)="tryLogin()"
+      >
+        Sign In
+      </button>
+    </div>
+  </div>
+</div>
