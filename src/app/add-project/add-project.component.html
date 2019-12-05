@@ -1,0 +1,78 @@
+<div class="wrapper">
+  <h4>Add Project</h4>
+  <div class="addproject">
+    <div class="container">
+      <div class="row">
+        <form>
+          <div class="form-group">
+            <label for="projecttitle">Project Title</label>
+            <input
+              class="form-control"
+              type="text"
+              name="title"
+              [(ngModel)]="title"
+              placeholder="Project Title"
+            />
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              rows="4"
+              placeholder="Description"
+              name="description"
+              [(ngModel)]="description"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="teamlead">Team Lead</label>
+            <select
+              class="form-control"
+              id="sel1"
+              (change)="onChange($event.target.value)"
+            >
+              <option>usman</option>
+              <option>ghani</option>
+              <option>ali</option>
+              <option>umer</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="members">Members</label>
+            <select
+              name="selectedMembers"
+              [(ngModel)]="selectedMembers"
+              class="selectpicker form-control"
+              multiple
+              data-live-search="true"
+            >
+              <option *ngFor="let member of members" [ngValue]="member">{{
+                member
+              }}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="document">Document</label>
+            <input type="file" />
+            <input type="file" />
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <button class="pull-right btn btn-danger" type="submit">
+                Cancel
+              </button>
+              <button
+                (click)="addProject()"
+                class="pull-right btn btn-primary"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
