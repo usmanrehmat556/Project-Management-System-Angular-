@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-add-project",
@@ -15,7 +16,7 @@ export class AddProjectComponent implements OnInit {
 
   allprojects: any[] = [];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
@@ -32,5 +33,6 @@ export class AddProjectComponent implements OnInit {
     };
     this.allprojects.push(project);
     localStorage.setItem("projects", JSON.stringify(this.allprojects));
+    this.router.navigate(["/allprojects"]);
   }
 }

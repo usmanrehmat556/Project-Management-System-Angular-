@@ -10,13 +10,21 @@ import { SignupComponent } from "./signup/signup.component";
 import { HomeComponent } from "./home/home.component";
 import { AddProjectComponent } from "./add-project/add-project.component";
 import { AllProjectsComponent } from "./all-projects/all-projects.component";
+import { UsersComponent } from "./users/users.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ProjectComponent } from "./project/project.component";
+import { ProjectsComponent } from "./projects/projects.component";
+
+// import { DragDropModule } from "@angular/cdk/drag-drop";
 
 const routes: Routes = [
   // { path: "", component: HomeComponent },
   { path: "", component: SigninComponent },
   { path: "signup", component: SignupComponent },
   { path: "addproject", component: AddProjectComponent },
-  { path: "allprojects", component: AllProjectsComponent }
+  { path: "allprojects", component: AllProjectsComponent },
+  { path: "users", component: UsersComponent },
+  { path: "project", component: ProjectComponent }
 ];
 
 @NgModule({
@@ -26,13 +34,18 @@ const routes: Routes = [
     SignupComponent,
     HomeComponent,
     AddProjectComponent,
-    AllProjectsComponent
+    AllProjectsComponent,
+    UsersComponent,
+    ProjectComponent,
+    ProjectsComponent
   ],
   imports: [
+    // DragDropModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
