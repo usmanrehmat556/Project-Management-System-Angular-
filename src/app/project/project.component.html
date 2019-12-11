@@ -1,32 +1,85 @@
 <div class="wrapper">
-  <h2>In Progress</h2>
-  <div
-    class="example-box"
-    (drop)="onDrop($event, 'progress')"
-    (dragover)="allowDrop($event)"
-  >
-    <div
-      *ngFor="let item of tasks.progress"
-      class="example-box small"
-      draggable="true"
-      (dragstart)="onDragStart($event, item, 'progress')"
-    >
-      {{ item }}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-xs-12">
+        <div class="new">
+          <h2>New</h2>
+          <div
+            class="example-box"
+            (drop)="onDrop($event, 'new')"
+            (dragover)="allowDrop($event)"
+          >
+            <div
+              *ngFor="let item of tasks.new"
+              class="example-box small"
+              draggable="true"
+              (dragstart)="onDragStart($event, item, 'new')"
+            >
+              {{ item }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <div class="prog">
+          <h2>In Progress</h2>
+          <div
+            class="example-box"
+            (drop)="onDrop($event, 'progress')"
+            (dragover)="allowDrop($event)"
+          >
+            <div
+              *ngFor="let item of tasks.progress"
+              class="example-box small"
+              draggable="true"
+              (dragstart)="onDragStart($event, item, 'progress')"
+            >
+              {{ item }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <div class="completed">
+          <h2>Completed</h2>
+          <div
+            class="example-box"
+            (drop)="onDrop($event, 'completed')"
+            (dragover)="allowDrop($event)"
+          >
+            <div
+              *ngFor="let item of tasks.completed"
+              class="example-box small"
+              draggable="true"
+              (dragstart)="onDragStart($event, item, 'completed')"
+            >
+              {{ item }}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <h2>Completed</h2>
-  <div
-    class="example-box"
-    (drop)="onDrop($event, 'completed')"
-    (dragover)="allowDrop($event)"
-  >
-    <div
-      *ngFor="let item of tasks.completed"
-      class="example-box small"
-      draggable="true"
-      (dragstart)="onDragStart($event, item, 'completed')"
-    >
-      {{ item }}
+    <div class="row">
+      <div class="col-md-6 col-xs-12">
+        <div class="completed">
+          <h2>Backlog</h2>
+          <div
+            class="example-box"
+            (drop)="onDrop($event, 'backlog')"
+            (dragover)="allowDrop($event)"
+          >
+            <div
+              *ngFor="let item of tasks.backlog"
+              class="example-box small"
+              draggable="true"
+              (dragstart)="onDragStart($event, item, 'backlog')"
+            >
+              {{ item }}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <!-- <app-add-new-task (addNewTask)="onAddNewTask($event)"></app-add-new-task> -->
   </div>
 </div>

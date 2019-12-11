@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { Router } from "@angular/router";
+import { v4 as uuid } from "uuid";
 
 @Component({
   selector: "app-add-project",
@@ -14,8 +15,6 @@ export class AddProjectComponent implements OnInit {
   members: string[] = ["usman", "ghani", "umer", "hamza"];
   selectedMembers: string[] = [];
 
-  allprojects: any[] = [];
-
   constructor(private router: Router) {}
 
   ngOnInit() {}
@@ -25,14 +24,17 @@ export class AddProjectComponent implements OnInit {
   }
 
   addProject() {
-    const project: object = {
+    let all_projects = JSON.parse(localStorage.getItem("projects"));
+    all_projects = all_projects ? all_projects : [];
+    const project = {
+      id: uuid(),
       title: this.title,
       description: this.description,
       teamLead: this.teamLead,
       selectedMembers: this.selectedMembers
     };
-    this.allprojects.push(project);
-    localStorage.setItem("projects", JSON.stringify(this.allprojects));
+    all_projects.push(project);
+    localStorage.setItem("projects", JSON.stringify(all_projects));
     this.router.navigate(["/allprojects"]);
   }
 }

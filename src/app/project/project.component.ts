@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-project",
@@ -6,12 +6,24 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./project.component.css"]
 })
 export class ProjectComponent implements OnInit {
+  @Input() newTask: object;
+
   dataTransfer: any;
+  newTasks: any;
+
   tasks = {
-    completed: ["abc", "cde", "def"];
-    progress: ["efg", "hij", "klm"];
+    completed: ["abc", "cde", "def"],
+    progress: ["efg", "hij", "klm"],
+    new: ["plo", "ujc", "ole"],
+    backlog: ["ytg", "olk", "uig"]
   };
-  constructor() {}
+
+  constructor() {
+    this.newTasks = JSON.parse(localStorage.getItem("project")).stories;
+    console.log(this.newTasks);
+    this.tasks["new"] = [];
+    this.tasks["new"] = this.newTasks;
+  }
 
   ngOnInit() {}
 
@@ -33,4 +45,7 @@ export class ProjectComponent implements OnInit {
     event.preventDefault();
   }
 
+  onAddNewTask(event: any) {
+    console.log("got event : ", event);
+  }
 }

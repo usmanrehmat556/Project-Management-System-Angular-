@@ -13,7 +13,8 @@ import { AllProjectsComponent } from "./all-projects/all-projects.component";
 import { UsersComponent } from "./users/users.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ProjectComponent } from "./project/project.component";
-import { ProjectsComponent } from "./projects/projects.component";
+import { AddNewTaskComponent } from "./add-new-task/add-new-task.component";
+import { ProjectDetails } from "./projectDetails/projectDetails.component";
 
 // import { DragDropModule } from "@angular/cdk/drag-drop";
 
@@ -24,7 +25,9 @@ const routes: Routes = [
   { path: "addproject", component: AddProjectComponent },
   { path: "allprojects", component: AllProjectsComponent },
   { path: "users", component: UsersComponent },
-  { path: "project", component: ProjectComponent }
+  { path: "project", component: ProjectComponent },
+  { path: "addnewtask", component: AddNewTaskComponent },
+  { path: "projectdetails", component: ProjectDetails }
 ];
 
 @NgModule({
@@ -37,7 +40,8 @@ const routes: Routes = [
     AllProjectsComponent,
     UsersComponent,
     ProjectComponent,
-    ProjectsComponent
+    ProjectDetails,
+    AddNewTaskComponent
   ],
   imports: [
     // DragDropModule,
